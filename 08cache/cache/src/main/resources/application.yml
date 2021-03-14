@@ -1,0 +1,22 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    username: root
+    password: 1234567890
+    url: jdbc:mysql://localhost:3306/test?serverTimezone=UTC
+    driver-class-name: com.mysql.jdbc.Driver
+# 配置redis作为缓存
+  cache:
+    type: redis
+  redis:
+    host: localhost
+    lettuce:
+      pool:
+        max-active: 16
+        max-wait: 10ms
+
+mybatis:
+  mapper-locations: classpath:mapper/*Mapper.xml
+  type-aliases-package: galaxy.javacourse.cache.entity
